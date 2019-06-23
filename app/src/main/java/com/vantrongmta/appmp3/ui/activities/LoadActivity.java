@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -15,6 +16,8 @@ import android.widget.ImageView;
 import com.vantrongmta.appmp3.R;
 import com.vantrongmta.appmp3.constant.RequestCode;
 
+import java.io.File;
+
 public class LoadActivity extends AppCompatActivity {
     private ImageView imvLogo;
 
@@ -23,7 +26,20 @@ public class LoadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);
         initView();
+        creatFolder();
+    }
 
+    public void creatFolder(){
+        File folder = new File(Environment.getExternalStorageDirectory() + "/Zing MP3");
+        boolean success = true;
+        if (!folder.exists()){
+            success = folder.mkdir();
+        }
+        if (success){
+
+        }else {
+
+        }
     }
 
     private void initView() {
